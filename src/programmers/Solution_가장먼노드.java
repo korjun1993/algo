@@ -3,6 +3,18 @@ package programmers;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/*
+테스트 1 〉	통과 (0.36ms, 74.6MB)
+테스트 2 〉	통과 (0.41ms, 76.3MB)
+테스트 3 〉	통과 (0.56ms, 72.8MB)
+테스트 4 〉	통과 (1.09ms, 73.9MB)
+테스트 5 〉	통과 (2.36ms, 80.5MB)
+테스트 6 〉	통과 (4.44ms, 79.9MB)
+테스트 7 〉	통과 (26.64ms, 93.1MB)
+테스트 8 〉	통과 (33.30ms, 104MB)
+테스트 9 〉	통과 (75.43ms, 120MB)
+ */
+
 public class Solution_가장먼노드 {
     public static void main(String[] args) {
         int n = 6;

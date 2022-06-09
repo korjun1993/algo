@@ -1,5 +1,17 @@
 package programmers;
 
+/*
+테스트 1 〉	통과 (0.03ms, 74.7MB)
+테스트 2 〉	통과 (0.02ms, 75.3MB)
+테스트 3 〉	통과 (0.08ms, 78.2MB)
+테스트 4 〉	통과 (0.18ms, 78MB)
+테스트 5 〉	통과 (1.11ms, 70MB)
+테스트 6 〉	통과 (2.63ms, 75.8MB)
+테스트 7 〉	통과 (3.93ms, 78.2MB)
+테스트 8 〉	통과 (6.85ms, 83.2MB)
+테스트 9 〉	통과 (11.20ms, 82MB)
+테스트 10 〉	통과 (8.96ms, 80MB)
+ */
 public class Solution_순위 {
     public static void main(String[] args) {
         int n = 5;
