@@ -1,6 +1,6 @@
 package programmers;
 
-import java.util.Arrays;
+import java.util.*;
 
 public class Solution_순위검색 {
     public static void main(String[] args) {
@@ -10,38 +10,49 @@ public class Solution_순위검색 {
     }
 
     private static int[] solution(String[] info, String[] query) {
+        Map<String, ArrayList<Integer>> map = new HashMap<String, ArrayList<Integer>>();
         int[] answer = new int[query.length];
-        Employee employees[] = new Employee[info.length];
 
-        for (int i = 0; i < info.length; i++) {
-            String[] arr = info[i].split(" ");
-            employees[i] = new Employee(arr[0], arr[1], arr[2], arr[3], Integer.parseInt(arr[4]));
+        // 문자열[lang + job + career + favorite]을 key로 삼아 리스트에 점수 추가
+        for (String s : info) {
+            String[] str = s.split(" ");
+
+            for (int i = 0; i < 16; i++) {
+                String key = "";
+                for (int j = 0; j < 4; j++) {
+                    key += (i & (1 << j)) > 0 ? str[j] : "-";
+                }
+                map.putIfAbsent(key, new ArrayList<Integer>());
+                map.get(key).add(Integer.parseInt(str[4]));
+            }
+        }
+
+        // 점수에 따라 정렬
+        for (ArrayList<Integer> l : map.values()) {
+            Collections.sort(l);
         }
 
         for (int i = 0; i < query.length; i++) {
             String[] q = query[i].replace("and", "").replace("  ", " ").split(" ");
-            answer[i] = (int) Arrays.stream(employees).filter(e -> check(e, q)).count();
+            String key = q[0] + q[1] + q[2] + q[3];
+            int score = Integer.parseInt(q[4]);
+            if (!map.containsKey(key)) continue;
+            answer[i] = lower_bound(map.get(key), score);
         }
         return answer;
     }
 
-    static boolean check(Employee e, String[] q) {
-        return (q[0].equals("-") || e.lang.equals(q[0])) && (q[1].equals("-") || e.job.equals(q[1])) && (q[2].equals("-") || e.career.equals(q[2])) && (q[3].equals("-") || e.favorite.equals(q[3])) && e.score >= Integer.parseInt(q[4]);
-    }
-
-    static class Employee {
-        String lang;
-        String job;
-        String career;
-        String favorite;
-        int score;
-
-        public Employee(String lang, String job, String career, String favorite, int score) {
-            this.lang = lang;
-            this.job = job;
-            this.career = career;
-            this.favorite = favorite;
-            this.score = score;
+    static int lower_bound(ArrayList<Integer> list, int score) {
+        int result = -2;
+        int L = 0, R = list.size() - 1;
+        while (L <= R) {
+            int mid = (L + R) / 2;
+            if (list.get(mid) < score) {
+                L = mid + 1;
+                result = mid;
+            } else R = mid - 1;
         }
+
+        return result < -1 ? 0 : list.size() - result - 1;
     }
 }
