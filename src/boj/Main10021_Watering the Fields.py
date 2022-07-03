@@ -1,3 +1,6 @@
+'''
+prim-algorithm을 이용한 풀이법
+'''
 # import heapq
 #
 # # input
@@ -39,12 +42,14 @@
 #
 # print(answer)
 
+'''
+kruskal-algorithm을 이용한 풀이법
+'''
 import heapq
 
 # input
 N, C = map(lambda x: int(x), input().split())
 vertex = [tuple(map(lambda x: int(x), input().split())) for _ in range(N)]
-edges = []
 pq = []
 
 # union-find
