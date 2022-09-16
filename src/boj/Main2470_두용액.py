@@ -8,6 +8,7 @@ V1 = V2 = 0
 Min = 2000000000
 
 
+# X보다 크거나 같은 수중 가작 작은 수를 리턴
 def lower_bound(L, R, X):
     V = R + 1
     while L <= R:
