@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Main {
+public class Main17143_낚시왕 {
 
 	static int R, C; // 격자판 크기
 	static int M; // 상어 수
