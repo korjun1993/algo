@@ -1,14 +1,6 @@
 package programmers;
 
 public class Solution_기지국설치 {
-    public static void main(String[] args) {
-        Solution solution = new Solution();
-        int answer = solution.solution(16, new int[]{9}, 2);
-        System.out.println(answer);
-    }
-}
-
-class Solution {
     public int solution(int n, int[] stations, int w) {
         int answer = 0;
 
@@ -34,7 +26,7 @@ class Solution {
     public int getStationNumber(int left, int right, int w) {
         int bound = 2 * w + 1;
         int len = right - left + 1;
-        if (len == 0) return 0;
+        if (len <= 0) return 0;
         return (int) Math.ceil((double) len / bound);
     }
 }
