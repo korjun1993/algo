@@ -15,21 +15,18 @@ def move(n, d):
 # [0 ~ n-1], [n + 1 ~ 3] gear가 움직일지 확인하는 함수
 def check(n, pre):
     global dir, visited
-    if n < 0 or n >= 4 or visited[n]:
-        return
-
     visited[n] = True
-    if n == pre:  # 명령에 의해 회전하는 경우
-        check(n - 1, n)
-        check(n + 1, n)
+
+    if n < 0 or n >= 4 or visited[n]:
         return
 
     # 다른 gear에 의해 회전하는 경우, 어떤 gear로부터 영향을 받는지 확인
     d = 1 if pre < n else -1
-    if gear[pre][2 * d] != gear[n][-2 * d]:
+    if n != pre and gear[pre][2 * d] != gear[n][-2 * d]:
         dir[n] = -dir[pre]
-        check(n - 1, n)
-        check(n + 1, n)
+
+    check(n - 1, n)
+    check(n + 1, n)
 
 
 for c in cmd:
