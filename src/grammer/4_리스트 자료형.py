@@ -89,3 +89,7 @@ a = [1, 2, 3, 4, 5, 5, 5]
 remove_set = {3, 5}
 result = [i for i in a if i not in remove_set]
 print(result)
+
+# 리스트에서 원하는 문자열의 위치 찾아내기
+list = ['a', 'b', 'c', 'd', 'e']
+print(list.index('a'))
