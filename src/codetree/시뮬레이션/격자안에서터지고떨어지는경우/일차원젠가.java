@@ -1,4 +1,4 @@
-package codetree.격자안에서터지고떨어지는경우;
+package codetree.시뮬레이션.격자안에서터지고떨어지는경우;
 
 import java.util.Arrays;
 import java.util.Scanner;

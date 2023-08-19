@@ -1,4 +1,4 @@
-package codetree.격자안에서밀고당기기;
+package codetree.시뮬레이션.격자안에서밀고당기기;
 
 import java.util.Scanner;
 
