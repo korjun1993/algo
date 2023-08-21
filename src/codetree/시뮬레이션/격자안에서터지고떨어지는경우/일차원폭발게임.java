@@ -22,7 +22,6 @@ public class 일차원폭발게임 {
 		while (isBoom()) {
 			boom();
 		}
-
 		print();
 	}
 
